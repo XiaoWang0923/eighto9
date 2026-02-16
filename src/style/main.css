@@ -1,0 +1,109 @@
+body {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+
+    overflow: hidden;
+}
+
+.main {
+    position: relative;
+
+    display: flex;
+    flex: 1;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    font-weight: 400;
+    background-color: var(--bg-primary);
+    overflow: auto;
+}
+
+.smallbtn {
+    position: absolute;
+    display: block;
+    height: 35px;
+    width: 35px;
+
+    background-color: var(--bg-secondary);
+    border: 2px solid var(--border-divider);
+    border-radius: 10%;
+}
+
+.smallbtn:hover {
+    background-color: var(--btn-enable-hover);
+}
+
+#settingsbtn {
+    bottom: 10px;
+    left: 10px;
+}
+
+#devtoolsbtn {
+    bottom: 10px;
+    right: 10px;
+}
+
+#updatebtn {
+    top: 10px;
+    left: 10px;
+}
+
+#aboutbtn {
+    top: 10px;
+    right: 10px;
+}
+
+.functionbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 20px;
+    width: 200px;
+    height: 200px;
+    box-sizing: border-box;
+
+    background-color: var(--bg-secondary);
+    border: 5px solid var(--border-divider);
+}
+
+.functionname {
+    display: block;
+    margin: 20px;
+
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.functionbtn {
+    display: block;
+    width: 60px;
+    height: 36px;
+
+    font-weight: 700;
+    border: 2px solid var(--text-primary);
+    border-radius: 10%;
+}
+
+.btn-enable {
+    background-color: var(--btn-enable-df);
+}
+
+.btn-enable:hover {
+    background-color: var(--btn-enable-hover);
+}
+
+.btn-disable {
+    background-color: var(--btn-disable-df);
+}
+
+.btn-disable:hover {
+    background-color: var(--btn-disable-hover);
+}

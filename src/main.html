@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        style-src 'self';
+        font-src 'self' data:;
+        script-src 'self';
+    ">
+    <link rel="stylesheet" href="./style/root.css">
+    <link rel="stylesheet" href="./style/main.css">
+    <title>EightO9</title>
+</head>
+
+<body>
+    <div class="titlebar">EightO9</div>
+    <div class="main">
+        <button class="smallbtn" id="settingsbtn">设</button>
+        <button class="smallbtn" id="devtoolsbtn">D</button>
+        <button class="smallbtn" id="updatebtn">UP</button>
+        <button class="smallbtn" id="aboutbtn">关</button>
+        <div class="functionbox">
+            <div class="functionname">自动关机</div>
+            <button class="functionbtn btn-enable">启用</button>
+        </div>
+
+    </div>
+</body>
+
+<script src="./scripts/functionbtn.js"></script>
+<script src="./scripts/smallbtn.js"></script>
+
+</html>

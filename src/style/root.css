@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'HarmonyOS Sans';
+    src: url('../assets/fonts/HarmonyOS_Sans_SC_Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HarmonyOS Sans';
+    src: url('../assets/fonts/HarmonyOS_Sans_SC_Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HarmonyOS Sans';
+    src: url('../assets/fonts/HarmonyOS_Sans_SC_Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HarmonyOS Sans';
+    src: url('../assets/fonts/HarmonyOS_Sans_SC_Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --bg-primary: #1e1e1e;
+    --bg-secondary: #252526;
+    --bg-tertiary: #2d2d30;
+    --bg-titlebar: #2d2d30;
+    --border-divider: rgba(255, 255, 255, 0.12);
+
+    --text-primary: rgba(255, 255, 255, 0.87);
+    --text-secondary: rgba(255, 255, 255, 0.60);
+    --text-disabled: rgba(255, 255, 255, 0.38);
+    --icon-primary: rgba(255, 255, 255, 0.80);
+
+    --btn-enable-df: #3B9DFF;
+    --btn-enable-hover: #1F6FB5;
+    --btn-disable-df: #FF3B3B;
+    --btn-disable-hover: #B51F1F;
+}
+
+html {
+    height: 100%;
+    font-family: 'HarmonyOS Sans', sans-serif;
+    color: var(--text-primary);
+}
+
+button {
+    text-align: center;
+    color: var(--text-primary);
+}
+
+.titlebar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 35px;
+    margin: 0px;
+
+    font-weight: 500;
+    flex-shrink: 0;
+
+    background-color: var(--bg-titlebar);
+    color: var(--text-primary);
+
+    -webkit-app-region: drag;
+}

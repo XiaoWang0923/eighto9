@@ -1,0 +1,19 @@
+{
+  "name": "eighto9",
+  "version": "1.0.0",
+  "description": "809专属一体机相关工具集",
+  "license": "MIT",
+  "author": "电脑课代表小王同学",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ./src/main.js"
+  },
+  "devDependencies": {
+    "electron": "^40.3.0",
+    "electron-builder": "^26.7.0"
+  },
+  "dependencies": {
+    "electron-updater": "^6.7.3"
+  }
+}
