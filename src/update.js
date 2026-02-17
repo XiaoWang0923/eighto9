@@ -10,7 +10,7 @@ autoUpdater.autoInstallOnAppQuit = true
 
 function initUpdater(mainWindow) {
     ipcMain.on("checkUpdate", () => {
-        autoUpdater.checkForUpdatesAndNotify()
+        autoUpdater.checkForUpdatesAndNotify(mainWindow)
     })
 
 }

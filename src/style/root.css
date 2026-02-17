@@ -54,9 +54,22 @@ html {
     color: var(--text-primary);
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+
+    overflow: hidden;
+}
+
+
 button {
     text-align: center;
     color: var(--text-primary);
+    user-select: none;
 }
 
 .titlebar {
@@ -73,5 +86,6 @@ button {
     background-color: var(--bg-titlebar);
     color: var(--text-primary);
 
+    user-select: none;
     -webkit-app-region: drag;
 }

@@ -6,5 +6,8 @@ contextBridge.exposeInMainWorld("electronAPI", {
     },
     checkUpdate: () => {
         ipcRenderer.send("checkUpdate")
+    },
+    openAbout: () => {
+        ipcRenderer.send("openAbout")
     }
 })
