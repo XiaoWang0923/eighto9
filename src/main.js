@@ -1,8 +1,9 @@
 const { app, BrowserWindow, ipcMain } = require("electron/main")
 const path = require("path")
+const update = require(path.join(__dirname, "update.js"))
 
 function createMainWindow() {
-    const win = new BrowserWindow({
+    const mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
         titleBarStyle: 'hidden',
@@ -15,9 +16,10 @@ function createMainWindow() {
             preload: path.join(__dirname, "preload.js")
         }
     })
-    win.loadURL(path.join(__dirname, "main.html"))
+    mainWindow.loadURL(path.join(__dirname, "main.html"))
+    update.initUpdater(mainWindow)
     ipcMain.on("openDevtools", () => {
-        win.webContents.openDevTools()
+        mainWindow.webContents.openDevTools()
     })
 }
 

@@ -1,19 +1,46 @@
 {
   "name": "eighto9",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "809专属一体机相关工具集",
   "license": "MIT",
   "author": "电脑课代表小王同学",
   "type": "commonjs",
-  "main": "main.js",
+  "main": "./src/main.js",
   "scripts": {
-    "start": "electron ./src/main.js"
+    "start": "electron ./src/main.js",
+    "build": "electron-builder",
+    "publish": "electron-builder build --publish always"
   },
   "devDependencies": {
     "electron": "^40.3.0",
     "electron-builder": "^26.7.0"
   },
   "dependencies": {
+    "electron-log": "^5.4.3",
     "electron-updater": "^6.7.3"
+  },
+  "build": {
+    "appId": "eighto9",
+    "productName": "eighto9",
+    "files": [
+      "src/**/*"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "XiaoWang0923",
+      "repo": "eighto9",
+      "private": false
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true
+    }
   }
 }
