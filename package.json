@@ -16,15 +16,11 @@
     "electron-builder": "^26.7.0"
   },
   "dependencies": {
-    "electron-log": "^5.4.3",
     "electron-updater": "^6.7.3"
   },
   "build": {
     "appId": "eighto9",
     "productName": "eighto9",
-    "files": [
-      "src/**/*"
-    ],
     "directories": {
       "output": "release"
     },
