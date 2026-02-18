@@ -1,5 +1,5 @@
 const { autoUpdater } = require("electron-updater")
-const { ipcMain } = require("electron/main")
+const { ipcMain } = require("electron")
 
 autoUpdater.autoDownload = true
 autoUpdater.autoInstallOnAppQuit = true

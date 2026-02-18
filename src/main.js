@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require("electron/main")
+const { app, BrowserWindow, ipcMain } = require("electron")
 const path = require("path")
 const update = require(path.join(__dirname, "update.js"))
 
@@ -25,6 +25,7 @@ function createMainWindow() {
     ipcMain.on("openAbout", () => {
         createAboutWindow()
     })
+    console.log(app.getVersion())
 }
 
 function createAboutWindow() {
