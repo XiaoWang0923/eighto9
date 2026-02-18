@@ -13,11 +13,11 @@ function createMainWindow() {
             symbolColor: '#ffffff'
         },
         webPreferences: {
-            preload: path.join(__dirname, "preload.js")
+            preload: path.join(__dirname, "/preload/main.js")
         },
-        backgroundColor:"#000000"
+        backgroundColor: "#000000"
     })
-    mainWindow.loadURL(path.join(__dirname, "main.html"))
+    mainWindow.loadURL(path.join(__dirname, "/html/main.html"))
     update.initUpdater(mainWindow)
     ipcMain.on("openDevtools", () => {
         mainWindow.webContents.openDevTools()
@@ -39,7 +39,7 @@ function createAboutWindow() {
         },
         backgroundColor: "#000000"
     })
-    aboutWindow.loadURL(path.join(__dirname,"about.html"))
+    aboutWindow.loadURL(path.join(__dirname, "/html/about.html"))
 }
 
 app.whenReady().then(() => {

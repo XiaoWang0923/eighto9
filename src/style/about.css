@@ -1,0 +1,13 @@
+.content {
+    position: relative;
+
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    height: 100%;
+    font-weight: 400;
+    background-color: var(--bg-primary);
+    overflow: auto;
+}
