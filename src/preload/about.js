@@ -1,8 +1,8 @@
-const { contextBridge, ipcRenderer } = require("electron")
+const { contextBridge, ipcRenderer } = require("electron");
 
-contextBridge.exposeInMainWorld('electronAPI', {
+contextBridge.exposeInMainWorld("electronAPI", {
     openDevtoolsOnAbout: () => {
-        ipcRenderer.send("openDevtoolsOnAbout")
+        ipcRenderer.send("openDevtoolsOnAbout");
     },
-    getVersions: () => ipcRenderer.invoke("getVersions")
+    getVersions: () => ipcRenderer.invoke("getVersions"),
 });

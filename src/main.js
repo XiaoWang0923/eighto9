@@ -1,33 +1,33 @@
-const { app, BrowserWindow, ipcMain } = require("electron")
-const path = require("path")
-const update = require(path.join(__dirname, "update.js"))
+const { app, BrowserWindow, ipcMain } = require("electron");
+const path = require("path");
+const update = require(path.join(__dirname, "update.js"));
 
-let aboutWindow = null
+let aboutWindow = null;
 
 function createMainWindow() {
     const mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
-        titleBarStyle: 'hidden',
+        titleBarStyle: "hidden",
         titleBarOverlay: {
             height: 33,
-            color: '#2d2d30',
-            symbolColor: '#ffffff'
+            color: "#2d2d30",
+            symbolColor: "#ffffff",
         },
         webPreferences: {
-            preload: path.join(__dirname, "/preload/main.js")
+            preload: path.join(__dirname, "/preload/main.js"),
         },
-        backgroundColor: "#000000"
-    })
+        backgroundColor: "#000000",
+    });
     ipcMain.on("openDevtoolsOnMain", () => {
-        mainWindow.webContents.openDevTools()
-    })
+        mainWindow.webContents.openDevTools();
+    });
     ipcMain.on("openAbout", () => {
-        createAboutWindow()
-    })
-    update.initUpdater()
+        createAboutWindow();
+    });
+    update.initUpdater();
 
-    mainWindow.loadURL(path.join(__dirname, "/html/main.html"))
+    mainWindow.loadURL(path.join(__dirname, "/html/main.html"));
 }
 
 ipcMain.handle("getVersions", () => {
@@ -35,48 +35,47 @@ ipcMain.handle("getVersions", () => {
         app: app.getVersion(),
         node: process.versions.node,
         electron: process.versions.electron,
-        chrome: process.versions.chrome
-    }
-})
+        chrome: process.versions.chrome,
+    };
+});
 
 function createAboutWindow() {
     if (aboutWindow && !aboutWindow.isDestroyed()) {
-        aboutWindow.focus()
-        return
+        aboutWindow.focus();
+        return;
     }
     aboutWindow = new BrowserWindow({
         width: 450,
         height: 600,
-        titleBarStyle: 'hidden',
+        titleBarStyle: "hidden",
         titleBarOverlay: {
             height: 33,
-            color: '#2d2d30',
-            symbolColor: '#ffffff'
+            color: "#2d2d30",
+            symbolColor: "#ffffff",
         },
         webPreferences: {
-            preload: path.join(__dirname, "/preload/about.js")
+            preload: path.join(__dirname, "/preload/about.js"),
         },
-        backgroundColor: "#000000"
-    })
+        backgroundColor: "#000000",
+    });
     ipcMain.on("openDevtoolsOnAbout", () => {
-        aboutWindow.webContents.openDevTools()
-    })
-    aboutWindow.loadURL(path.join(__dirname, "/html/about.html"))
+        aboutWindow.webContents.openDevTools();
+    });
+    aboutWindow.loadURL(path.join(__dirname, "/html/about.html"));
 }
 
 app.whenReady().then(() => {
-    createMainWindow()
+    createMainWindow();
 
     app.on("activate", () => {
         if (BrowserWindow.getAllWindows().length === 0) {
-            createMainWindow()
+            createMainWindow();
         }
-    })
-
-})
+    });
+});
 
 app.on("window-all-closed", () => {
-    if (process.platform !== 'darwin') {
-        app.quit()
+    if (process.platform !== "darwin") {
+        app.quit();
     }
-})
+});

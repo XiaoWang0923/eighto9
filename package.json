@@ -9,11 +9,16 @@
   "scripts": {
     "start": "electron ./src/main.js",
     "build": "electron-builder",
-    "publish": "electron-builder build --publish always"
+    "publish": "electron-builder build --publish always",
+    "lint": "eslint src/"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@eslint/markdown": "^7.5.1",
     "electron": "^40.3.0",
-    "electron-builder": "^26.7.0"
+    "electron-builder": "^26.7.0",
+    "eslint": "^10.0.0",
+    "globals": "^17.3.0"
   },
   "dependencies": {
     "electron-updater": "^6.7.3"

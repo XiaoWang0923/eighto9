@@ -1,34 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="
         default-src 'self';
         style-src 'self';
         font-src 'self' data:;
         script-src 'self';
-    ">
-    <link rel="stylesheet" href="../style/root.css">
-    <link rel="stylesheet" href="../style/about.css">
-    <title>About EightO9</title>
-</head>
+    "
+        />
+        <link rel="stylesheet" href="../style/root.css" />
+        <link rel="stylesheet" href="../style/about.css" />
+        <title>About EightO9</title>
+    </head>
 
-<body>
-    <div class="titlebar">About EightO9</div>
-    <div class="content" id="content">
-        <button class="smallbtn" id="devtoolsbtn">#</button>
-        <div class="sbtntext" id="devtoolsbtntext">开发</div>
-        <p>EightO9 === 809</p>
-        <p>809专属一体机相关工具集.</p>
-        <p>Copyright © 2026 电脑课代表小王同学<br>Licensed by MIT.</p>
-        <p id="versions"></p>
-        <p>Dependencies: Electron, electron-updater.<br>Built by electron-builer.</p>
-        <p></p>
-    </div>
-</body>
+    <body>
+        <div class="titlebar">About EightO9</div>
+        <div class="content" id="content">
+            <button class="smallbtn" id="devtoolsbtn">#</button>
+            <div class="sbtntext" id="devtoolsbtntext">开发</div>
+            <p>EightO9 === 809</p>
+            <p>809专属一体机相关工具集.</p>
+            <p>Copyright © 2026 电脑课代表小王同学<br />Licensed by MIT.</p>
+            <p id="versions"></p>
+            <p>
+                Dependencies: Electron, electron-updater.<br />Built by
+                electron-builer.
+            </p>
+            <p></p>
+        </div>
+    </body>
 
-<script src="../renderer/about.js"></script>
-
+    <script src="../renderer/about.js"></script>
 </html>
