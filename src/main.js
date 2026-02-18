@@ -2,7 +2,7 @@ const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 const update = require(path.join(__dirname, "update.js"));
 
-let aboutWindow = null;
+let aboutWindow = null; // 用于防止多个aboutWindow造成openDevtools错误
 
 function createMainWindow() {
     const mainWindow = new BrowserWindow({
@@ -40,6 +40,7 @@ ipcMain.handle("getVersions", () => {
 });
 
 function createAboutWindow() {
+    // 确保只有一个aboutWindow
     if (aboutWindow && !aboutWindow.isDestroyed()) {
         aboutWindow.focus();
         return;

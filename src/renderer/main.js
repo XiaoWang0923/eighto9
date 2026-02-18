@@ -1,4 +1,5 @@
 const btns = document.getElementsByClassName("functionbtn");
+// 控制functionbtn的样式切换
 for (let btn of btns) {
     btn.addEventListener("click", () => {
         if (btn.className === "functionbtn btn-enable") {
@@ -23,6 +24,7 @@ document.getElementById("aboutbtn").onclick = () => {
     window.electronAPI.openAbout();
 };
 
+// TODO
 document.getElementById("settingsbtn").onclick = () => {
     alert("前面的功能还是以后再来探索吧！（not finished yet）");
 };

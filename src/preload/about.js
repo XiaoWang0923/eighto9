@@ -4,5 +4,5 @@ contextBridge.exposeInMainWorld("electronAPI", {
     openDevtoolsOnAbout: () => {
         ipcRenderer.send("openDevtoolsOnAbout");
     },
-    getVersions: () => ipcRenderer.invoke("getVersions"),
+    getVersions: () => ipcRenderer.invoke("getVersions"), // invoke version
 });

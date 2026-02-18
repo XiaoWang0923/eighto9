@@ -1,3 +1,4 @@
+// 在加载后与主进程通信，返回版本信息，注册一些事件监听
 window.addEventListener("DOMContentLoaded", async () => {
     const versions = await window.electronAPI.getVersions();
     const vElem = document.getElementById("versions");
@@ -14,6 +15,7 @@ window.addEventListener("DOMContentLoaded", async () => {
             "<br>" +
             "Electron version: V" +
             versions.electron;
+    // 点击后切换背景图片
     let content = document.getElementById("content");
     content.onclick = () => {
         content.style.setProperty("--bg-img", nextbgImg());
@@ -23,6 +25,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     };
 });
 
+// 循环播放背景图片
 let bgIndex = 0;
 const bgImgs = [
     "../assets/img/bgX.png",

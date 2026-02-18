@@ -1,10 +1,11 @@
 const { autoUpdater } = require("electron-updater");
 const { ipcMain, dialog } = require("electron");
 
-// autoUpdater.forceDevUpdateConfig = true;
+autoUpdater.forceDevUpdateConfig = true;
 autoUpdater.autoDownload = false;
 autoUpdater.autoInstallOnAppQuit = true;
 
+// 把相关事件侦听注册到主进程（在主进程中调用）
 function initUpdater(mainWindow) {
     ipcMain.on("checkUpdate", () => {
         autoUpdater.checkForUpdates();
