@@ -13,21 +13,6 @@
     overflow: auto;
 }
 
-.smallbtn {
-    position: absolute;
-    display: block;
-    height: 35px;
-    width: 35px;
-
-    font-size: 18px;
-    background-color: var(--bg-secondary);
-    border: 2px solid var(--border-divider);
-    border-radius: 10%;
-}
-
-.smallbtn:hover {
-    background-color: var(--btn-enable-hover);
-}
 
 #settingsbtn {
     bottom: 10px;
@@ -69,13 +54,6 @@
     right: 50px;
 }
 
-.sbtntext{
-    position: absolute;
-    display: flex;
-    align-items: center;
-    height: 35px;
-    user-select: none;
-}
 
 .functionbox {
     display: flex;

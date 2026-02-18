@@ -1,13 +1,37 @@
 .content {
     position: relative;
-
     flex: 1;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-
     height: 100%;
-    font-weight: 400;
-    background-color: var(--bg-primary);
+    padding: 0px 32px;
     overflow: auto;
+    color: var(--text-primary);
+    text-shadow: 1px 1px 3px var(--bg-primary);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+.content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--bg-img, url('../assets/img/bgX.png'));
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    filter: blur(1px);
+    z-index: -1;
+}
+
+
+#devtoolsbtn {
+    bottom: 10px;
+    right: 10px;
+}
+
+#devtoolsbtntext {
+    bottom: 10px;
+    right: 50px;
 }

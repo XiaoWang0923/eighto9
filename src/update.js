@@ -4,9 +4,9 @@ const { ipcMain } = require("electron")
 autoUpdater.autoDownload = true
 autoUpdater.autoInstallOnAppQuit = true
 
-function initUpdater(mainWindow) {
+function initUpdater() {
     ipcMain.on("checkUpdate", () => {
-        autoUpdater.checkForUpdatesAndNotify(mainWindow)
+        autoUpdater.checkForUpdatesAndNotify()
     })
 
 }

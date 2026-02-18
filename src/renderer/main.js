@@ -12,7 +12,7 @@ for (let btn of btns) {
 }
 
 document.getElementById("devtoolsbtn").onclick = () => {
-    window.electronAPI.openDevtools()
+    window.electronAPI.openDevtoolsOnMain()
 }
 
 document.getElementById("updatebtn").onclick = () => {

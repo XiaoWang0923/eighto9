@@ -89,3 +89,27 @@ button {
     user-select: none;
     -webkit-app-region: drag;
 }
+
+.smallbtn {
+    position: absolute;
+    display: block;
+    height: 35px;
+    width: 35px;
+
+    font-size: 18px;
+    background-color: var(--bg-secondary);
+    border: 2px solid var(--border-divider);
+    border-radius: 10%;
+}
+
+.smallbtn:hover {
+    background-color: var(--btn-enable-hover);
+}
+
+.sbtntext {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 35px;
+    user-select: none;
+}

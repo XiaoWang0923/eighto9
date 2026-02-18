@@ -2,6 +2,8 @@ const { app, BrowserWindow, ipcMain } = require("electron")
 const path = require("path")
 const update = require(path.join(__dirname, "update.js"))
 
+let aboutWindow = null
+
 function createMainWindow() {
     const mainWindow = new BrowserWindow({
         width: 800,
@@ -17,20 +19,33 @@ function createMainWindow() {
         },
         backgroundColor: "#000000"
     })
-    mainWindow.loadURL(path.join(__dirname, "/html/main.html"))
-    update.initUpdater(mainWindow)
-    ipcMain.on("openDevtools", () => {
+    ipcMain.on("openDevtoolsOnMain", () => {
         mainWindow.webContents.openDevTools()
     })
     ipcMain.on("openAbout", () => {
         createAboutWindow()
     })
-    console.log(app.getVersion())
+    update.initUpdater()
+
+    mainWindow.loadURL(path.join(__dirname, "/html/main.html"))
 }
 
+ipcMain.handle("getVersions", () => {
+    return {
+        app: app.getVersion(),
+        node: process.versions.node,
+        electron: process.versions.electron,
+        chrome: process.versions.chrome
+    }
+})
+
 function createAboutWindow() {
-    const aboutWindow = new BrowserWindow({
-        width: 800,
+    if (aboutWindow && !aboutWindow.isDestroyed()) {
+        aboutWindow.focus()
+        return
+    }
+    aboutWindow = new BrowserWindow({
+        width: 450,
         height: 600,
         titleBarStyle: 'hidden',
         titleBarOverlay: {
@@ -38,7 +53,13 @@ function createAboutWindow() {
             color: '#2d2d30',
             symbolColor: '#ffffff'
         },
+        webPreferences: {
+            preload: path.join(__dirname, "/preload/about.js")
+        },
         backgroundColor: "#000000"
+    })
+    ipcMain.on("openDevtoolsOnAbout", () => {
+        aboutWindow.webContents.openDevTools()
     })
     aboutWindow.loadURL(path.join(__dirname, "/html/about.html"))
 }
