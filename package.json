@@ -1,6 +1,6 @@
 {
   "name": "eighto9",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "809专属一体机相关工具集",
   "license": "MIT",
   "author": "电脑课代表小王同学",
@@ -36,7 +36,8 @@
       "private": false
     },
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "icon":"build/icon.ico"
     },
     "nsis": {
       "oneClick": false,
