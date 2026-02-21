@@ -28,6 +28,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 // 循环播放背景图片
 let bgIndex = 0;
 const bgImgs = [
+    "../assets/img/bgF.png",
     "../assets/img/bgX.png",
     "../assets/img/bgL.png",
     "../assets/img/bgC.png",
