@@ -24,8 +24,8 @@
     "electron-updater": "^6.7.3"
   },
   "build": {
-    "appId": "eighto9",
-    "productName": "eighto9",
+    "appId": "EightO9",
+    "productName": "EightO9",
     "directories": {
       "output": "release"
     },
