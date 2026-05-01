@@ -1,6 +1,7 @@
 const { app } = require("electron");
 const path = require("path");
 const fs = require("fs");
+const autopoweroff = require("./autopoweroff.js");
 
 const userDataPath = app.getPath("userData");
 const settingsPath = path.join(userDataPath, "data", "settings.json");
@@ -16,6 +17,8 @@ async function initSettings() {
             await fs.promises.access(settingsPath);
             readSettings();
             setAutoStart();
+            autopoweroff.setTimer(settings);
+            console.log("settings.js: settings applied");
         } catch {
             const defaultSettings = {
                 main: {
@@ -36,6 +39,8 @@ async function initSettings() {
             );
             readSettings();
             setAutoStart();
+            autopoweroff.setTimer(settings);
+            console.log("settings.js: settings applied");
         }
     } catch (e) {
         console.error("settings.js: initSettings() failed", e);
@@ -45,6 +50,7 @@ async function initSettings() {
 function readSettings() {
     try {
         settings = JSON.parse(fs.readFileSync(settingsPath, "utf-8"));
+        console.log("settings.js: settings:\n", settings);
     } catch (e) {
         console.error("settings.js: readSettings() failed", e);
     }
@@ -52,7 +58,11 @@ function readSettings() {
 
 async function writeSettings() {
     try {
-        await fs.promises.writeFile(settingsPath, JSON.stringify(settings));
+        await fs.promises.writeFile(
+            settingsPath,
+            JSON.stringify(settings, null, 4),
+        );
+        console.log("settings.js: settings:\n", settings);
     } catch (e) {
         console.error("settings.js: writeSettings() failed", e);
     }
@@ -65,8 +75,9 @@ function getAll() {
 // 无检查
 function setAll(newsettings) {
     settings = newsettings;
-    writeSettings(newsettings);
+    writeSettings();
     setAutoStart();
+    autopoweroff.setTimer(settings);
 }
 
 function get(module, key) {
@@ -78,15 +89,18 @@ function set(module, key, value) {
     settings[module][key] = value;
     writeSettings(settings);
     setAutoStart();
+    autopoweroff.setTimer(settings);
 }
 
 function setAutoStart() {
     if (get("main", "autoStart")) {
+        console.log("settings.js: autostart set");
         app.setLoginItemSettings({
             openAtLogin: true,
             args: ["--hidden"],
         });
     } else {
+        console.log("settings.js: autostart cleard");
         app.setLoginItemSettings({
             openAtLogin: false,
         });

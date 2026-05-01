@@ -1,0 +1,91 @@
+.card {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--bg-primary);
+}
+
+.counter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    height: 120px;
+    width: 260px;
+    margin-bottom: 16px;
+    background-color: var(--bg-secondary);
+
+}
+
+.number {
+    display: flex;
+    height: 100px;
+    width: 50px;
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 700;
+    font-size: 80px;
+    background-color: var(--bg-tertiary);
+    border: 3px solid var(--border-divider);
+}
+
+#colon {
+    display: flex;
+    height: 100px;
+    width: 10px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 80px;
+
+}
+
+.btnbar {
+    margin: 0px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#cancel {
+    display: block;
+    margin-left: 8px;
+    margin-right: 8px;
+    width: 60px;
+    height: 36px;
+
+    font-weight: 700;
+    border: 2px solid var(--text-primary);
+    border-radius: 6px;
+    background-color: var(--btn-disable-df);
+}
+
+#cancel:hover {
+    background-color: var(--btn-disable-hover);
+
+}
+
+#delay {
+    display: block;
+    margin-left: 8px;
+    margin-right: 8px;
+    width: 60px;
+    height: 36px;
+
+    font-weight: 700;
+    border: 2px solid var(--text-primary);
+    border-radius: 6px;
+    background-color: var(--btn-enable-df);
+}
+
+#delay:hover {
+    background-color: var(--btn-enable-hover);
+
+}

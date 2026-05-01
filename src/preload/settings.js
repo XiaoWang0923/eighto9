@@ -4,5 +4,6 @@ contextBridge.exposeInMainWorld("electronAPI", {
         ipcRenderer.send("openDevtoolsOnSettings");
     },
     getSettings: () => ipcRenderer.invoke("getSettings"),
-    confirmSettings:(settings)=> ipcRenderer.send("confirmSettings",settings)
+    confirmSettings: (settings) =>
+        ipcRenderer.send("confirmSettings", settings),
 });

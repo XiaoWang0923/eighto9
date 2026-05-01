@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="
+        default-src 'self';
+        style-src 'self';
+        font-src 'self' data:;
+        script-src 'self';
+    "
+        />
+        <link rel="stylesheet" href="../style/root.css" />
+        <link rel="stylesheet" href="../style/autopoweroff.css" />
+        <title>Autopoweroff | EightO9</title>
+    </head>
+    <body>
+        <div class="card">
+            <div class="counter">
+                <span class="number" id="number1">0</span>
+                <span class="number" id="number2">1</span>
+                <span id="colon">:</span>
+                <span class="number" id="number3">0</span>
+                <span class="number" id="number4">0</span>
+            </div>
+            <div class="btnbar">
+                <button id="cancel">取消</button>
+                <button id="delay">延时</button>
+            </div>
+        </div>
+    </body>
+    <script src="../renderer/autopoweroff.js"></script>
+</html>

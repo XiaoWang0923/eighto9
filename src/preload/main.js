@@ -13,4 +13,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
     openSettings: () => {
         ipcRenderer.send("openSettings");
     },
+    getSettings: () => ipcRenderer.invoke("getSettings"),
+    switchAutopoweroffEnability: (enable) =>
+        ipcRenderer.send("switchAutopoweroffEnability", enable),
 });

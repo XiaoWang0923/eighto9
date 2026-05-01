@@ -1,13 +1,6 @@
 const { app, BrowserWindow, ipcMain, Tray, Menu } = require("electron");
 const path = require("path");
-// when packeage
-// const update = require(path.join(__dirname, "update.js"));
-// // const autopoweroff = require(path.join(__dirname, "autopoweroff.js"));
-// const settings = require(path.join(__dirname, "settings.js"));
-
-// when develop
 const update = require("./update.js");
-// const autopoweroff = require("./autopoweroff.js");
 const settings = require("./settings.js");
 
 let mainWindow = null;
@@ -40,6 +33,9 @@ function createMainWindow(isNotHidden) {
     });
     ipcMain.on("openSettings", () => {
         createSettingsWindow();
+    });
+    ipcMain.on("switchAutopoweroffEnability", (event, enable) => {
+        settings.set("autopoweroff", "enable", enable);
     });
     update.initUpdater();
 
@@ -123,6 +119,7 @@ function createAppTray() {
         {
             label: "关闭",
             click: () => {
+                console.log("main.js: app.quit()\n");
                 app.quit();
             },
         },
@@ -136,12 +133,21 @@ function createAppTray() {
 }
 
 app.whenReady().then(() => {
+    console.log(
+        "\n",
+        new Date().toLocaleString("en-US", { timeZone: "Asia/Shanghai" }),
+    );
+
     settings.initSettings();
     ipcMain.handle("getSettings", () => {
         return settings.getAll();
     });
     ipcMain.on("confirmSettings", (event, newSettings) => {
+        console.log("main.js: confirmSettings");
         settings.setAll(newSettings);
+        if (!mainWindow.isDestroyed()) {
+            mainWindow.reload();
+        }
         settingsWindow.close();
         settingsWindow.on("closed", () => {
             settingsWindow = null;
@@ -158,8 +164,10 @@ app.whenReady().then(() => {
 
     if (process.argv.includes("--hidden")) {
         createMainWindow(false);
+        console.log("main.js: auto started");
     } else {
         createMainWindow(true);
+        console.log("main.js: started");
     }
 
     createAppTray();

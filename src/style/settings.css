@@ -120,7 +120,7 @@ input:checked+.slider:before {
     background-color: #1e293b;
 }
 
-#confirmbtn{
+#confirmbtn {
     display: block;
     margin-top: 16px;
     width: 60px;
@@ -132,6 +132,6 @@ input:checked+.slider:before {
     background-color: var(--btn-enable-df);
 }
 
-#confirmbtn:hover{
+#confirmbtn:hover {
     background-color: var(--btn-enable-hover);
 }
