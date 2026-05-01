@@ -128,7 +128,7 @@ function createAppTray() {
     appTray.setToolTip("EightO9");
     appTray.setContextMenu(contextMenu);
     appTray.on("click", () => {
-        mainWindow.isDestroyed() ? createMainWindow(true) : mainWindow.focus();
+        mainWindow.isDestroyed() ? createMainWindow(true) : mainWindow.show();
     });
 }
 
