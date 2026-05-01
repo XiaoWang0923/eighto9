@@ -14,14 +14,16 @@ async function initSettings() {
 
         try {
             await fs.promises.access(settingsPath);
+            readSettings();
+            setAutoStart();
         } catch {
             const defaultSettings = {
                 main: {
-                    autoStart: true
+                    autoStart: true,
                 },
                 autopoweroff: {
                     enable: true,
-                    time: ["12:30", "22:15"],
+                    time: ["12:15", "22:10"],
                 },
             };
             await fs.promises.writeFile(
@@ -32,6 +34,8 @@ async function initSettings() {
                 "settings.js: setting.json has been created.",
                 settingsPath,
             );
+            readSettings();
+            setAutoStart();
         }
     } catch (e) {
         console.error("settings.js: initSettings() failed", e);
@@ -54,18 +58,45 @@ async function writeSettings() {
     }
 }
 
+function getAll() {
+    return settings;
+}
+
+// 无检查
+function setAll(newsettings) {
+    settings = newsettings;
+    writeSettings(newsettings);
+    setAutoStart();
+}
+
 function get(module, key) {
     return settings[module][key];
 }
 
+// 无检查
 function set(module, key, value) {
     settings[module][key] = value;
     writeSettings(settings);
+    setAutoStart();
+}
+
+function setAutoStart() {
+    if (get("main", "autoStart")) {
+        app.setLoginItemSettings({
+            openAtLogin: true,
+            args: ["--hidden"],
+        });
+    } else {
+        app.setLoginItemSettings({
+            openAtLogin: false,
+        });
+    }
 }
 
 module.exports = {
     initSettings,
-    readSettings,
+    getAll,
+    setAll,
     get,
     set,
 };

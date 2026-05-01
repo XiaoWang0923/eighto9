@@ -24,7 +24,6 @@ document.getElementById("aboutbtn").onclick = () => {
     window.electronAPI.openAbout();
 };
 
-// TODO
 document.getElementById("settingsbtn").onclick = () => {
-    alert("前面的功能还是以后再来探索吧！（not finished yet）");
+    window.electronAPI.openSettings();
 };

@@ -1,6 +1,6 @@
 {
   "name": "eighto9",
-  "version": "1.4.5",
+  "version": "1.5.0",
   "description": "809专属一体机相关工具集",
   "license": "MIT",
   "author": "电脑课代表小王同学",
@@ -24,7 +24,7 @@
     "electron-updater": "^6.7.3"
   },
   "build": {
-    "appId": "EightO9",
+    "appId": "eighto9",
     "productName": "EightO9",
     "directories": {
       "output": "release"

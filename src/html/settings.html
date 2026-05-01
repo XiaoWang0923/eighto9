@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="
+        default-src 'self';
+        style-src 'self';
+        font-src 'self' data:;
+        script-src 'self';
+    "
+        />
+        <link rel="stylesheet" href="../style/root.css" />
+        <link rel="stylesheet" href="../style/settings.css" />
+        <title>Settings | EightO9</title>
+    </head>
+
+    <body>
+        <div class="titlebar">Settings | EightO9</div>
+        <div class="panel">
+            <label class="switch-item">
+                <span>开机自启</span>
+                <label class="switch">
+                    <input type="checkbox" id="toggleOne" />
+                    <span class="slider"></span>
+                </label>
+            </label>
+
+            <label class="switch-item">
+                <span>自动关机</span>
+                <label class="switch">
+                    <input type="checkbox" id="toggleTwo" />
+                    <span class="slider"></span>
+                </label>
+            </label>
+
+            <label class="time-label">选择时间1</label>
+            <input type="time" class="time-input" id="timePicker1" step="900" />
+
+            <label class="time-label">选择时间2</label>
+            <input type="time" class="time-input" id="timePicker2" step="900" />
+
+            <button id="confirmbtn">确认</button>
+
+            <button class="smallbtn" id="devtoolsbtn">#</button>
+            <div class="sbtntext" id="devtoolsbtntext">开发</div>
+        </div>
+    </body>
+
+    <script src="../renderer/settings.js"></script>
+</html>

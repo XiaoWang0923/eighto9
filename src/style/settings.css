@@ -1,0 +1,137 @@
+.panel {
+    position: relative;
+
+    display: flex;
+    flex: 1;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    font-weight: 400;
+    background-color: var(--bg-primary);
+    overflow: auto;
+}
+
+#devtoolsbtn {
+    bottom: 10px;
+    right: 10px;
+}
+
+#devtoolsbtntext {
+    bottom: 10px;
+    right: 50px;
+}
+
+/* switch */
+
+.switch-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 28px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #cbd5e1;
+    border-radius: 34px;
+    transition: 0.3s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+input:checked+.slider {
+    background-color: #3b82f6;
+}
+
+input:checked+.slider:before {
+    transform: translateX(24px);
+}
+
+.switch input:disabled+.slider {
+    background-color: #e2e8f0;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.switch input:disabled+.slider:before {
+    background-color: #cbd5e1;
+}
+
+/* timepicker */
+
+.time-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #a0aec0;
+    margin-bottom: 6px;
+}
+
+.time-input {
+    width: 140px;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    color: #e2e8f0;
+    background-color: #1e293b;
+    border: 1px solid #475569;
+    border-radius: 24px;
+    transition: all 0.2s ease;
+}
+
+.time-input:hover {
+    border-color: #64748b;
+    background-color: #334155;
+}
+
+.time-input:focus {
+    outline: none;
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.3);
+    background-color: #1e293b;
+}
+
+#confirmbtn{
+    display: block;
+    margin-top: 16px;
+    width: 60px;
+    height: 36px;
+
+    font-weight: 700;
+    border: 2px solid var(--text-primary);
+    border-radius: 10%;
+    background-color: var(--btn-enable-df);
+}
+
+#confirmbtn:hover{
+    background-color: var(--btn-enable-hover);
+}
